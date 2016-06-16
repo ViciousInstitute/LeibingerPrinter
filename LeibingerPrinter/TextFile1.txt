@@ -1,0 +1,69 @@
+﻿
+Originally used the following for status messages, but its not necessary if the IO exception from the socket
+read timeout is handled properly
+
+
+ //private string Connect(string statusCMDMessage)
+        //{
+        //    try
+        //    {
+
+        //        TcpClient client = new TcpClient(_printerIP, _port);
+
+        //        byte[] data = System.Text.Encoding.ASCII.GetBytes(statusCMDMessage);
+
+        //        NetworkStream stream = client.GetStream();
+        //        stream.Write(data, 0, data.Length);
+
+        //        data = new byte[256];
+        //        string responseData = String.Empty;
+        //        client.ReceiveTimeout = 10; //timeout if nothing received after 10 ms
+        //        int bytes = stream.Read(data, 0, data.Length);
+        //        responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+        //        //Console.WriteLine(responseData);
+        //        stream.Close();
+        //        client.Close();
+        //        return responseData;
+        //    }
+        //    catch (ArgumentNullException e)
+        //    {
+        //        Console.WriteLine("ArgumentNullException: {0}", e);
+        //        return e.Message;
+
+        //    }
+        //    catch (ObjectDisposedException e)
+        //    {
+        //        Console.WriteLine("ObjectDisposedException: {0}", e);
+        //        return e.Message;
+
+        //    }
+        //    catch (System.IO.IOException e) // exception if nothing is returned from the socket for status messages
+        //    {
+        //        Console.WriteLine("IOException: {0}", e);
+        //        return e.Message;
+
+        //    }
+        //    catch (SocketException e)
+        //    {
+        //        Console.WriteLine("Socket Exception: {0}", e);
+        //        return e.Message;
+
+        //    }
+        //} 
+
+
+
+
+
+
+
+		 public BitVector32 BinaryError
+        {
+            get
+            {
+                BitVector32 _errorBits = new BitVector32(ErrorCode);
+               // _errorBits = Convert.ToString(ErrorCode, 2);
+                return _errorBits;
+            }
+
+        }
